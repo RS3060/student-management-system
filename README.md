@@ -1,32 +1,32 @@
 # Run Locally
 
-step 1: clone the project in you locally.
+step 1: clone the project locally.
 
-```
+```bash
 git clone https://github.com/RS3060/student-management-system.git
 ```
 
 step 2: cd into the project's directory.
 
-```
+```bash
 cd student-management-system
 ```
 
 step 3: Run npm install when inside the specified directory to download the dependencies.
 
-```
+```bash
 npm install
 ```
 
 step 4: Run the project.
 
-```
+```bash
 npm run dev
 ```
 
 step 5: Finally, copy and open the server link generated in your preferred browser of choice.
 
-step 6: To close the local server press ``ctrl+c`` in your terminal.
+step 6: To terminate the local server press ``ctrl+c`` in your terminal.
 
 
 # React + Vite
