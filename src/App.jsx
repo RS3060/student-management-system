@@ -5,6 +5,7 @@ import Navbar from './components/Navbar';
 import Dashboard from './pages/Dashboard';
 import StudentList from './pages/StudentList';
 import StudentForm from './pages/StudentForm';
+import StudentDetails from './pages/StudentDetails';
 import './App.css';
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
             <Route path="/students" element={<StudentList />} />
             <Route path="/add" element={<StudentForm />} />
             <Route path="/edit/:id" element={<StudentForm />} />
+            <Route path="/student/:id" element={<StudentDetails />} />
           </Routes>
         </main>
       </Router>
