@@ -1,22 +1,224 @@
-:root { --bg: #f4f7fe; --text: #333; --card: #fff; }
-.dark { --bg: #1a1a1a; --text: #f4f7fe; --card: #2d2d2d; }
+.loader { text-align: center; font-size: 1.5rem; margin-top: 50px; color: #666; }
 
-body { background: var(--bg); color: var(--text); font-family: sans-serif; transition: 0.3s; }
+.status-pill {
+  padding: 5px 12px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 0.8rem;
+}
+.status-pill.present { background: #e6fffa; color: #2c7a7b; }
+.status-pill.absent { background: #fff5f5; color: #c53030; }
+.status-pill.late { background: #fffaf0; color: #b7791f; }
 
-.navbar { display: flex; justify-content: space-between; padding: 1rem 5%; background: var(--card); box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-.nav-links { display: flex; gap: 20px; align-items: center; }
-.nav-links a { text-decoration: none; color: var(--text); display: flex; align-items: center; gap: 5px; }
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin-top: 20px;
+  padding-bottom: 30px;
+}
+.pagination button {
+  padding: 8px 16px;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.pagination button:disabled { opacity: 0.5; cursor: not-allowed; }
 
-.stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 20px; }
-.stat-card { background: var(--card); padding: 20px; border-radius: 12px; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+/* Update these in your App.css */
 
-.student-table { width: 100%; border-collapse: collapse; margin-top: 20px; background: var(--card); border-radius: 8px; overflow: hidden; }
-th, td { padding: 15px; text-align: left; border-bottom: 1px solid #eee; }
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 5%; /* Increased vertical padding */
+  background: var(--card);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  margin-bottom: 2rem; /* Adds space below the navbar */
+}
 
-.student-form { display: flex; flex-direction: column; gap: 15px; max-width: 500px; margin: auto; background: var(--card); padding: 30px; border-radius: 12px; }
-input, select { padding: 12px; border: 1px solid #ddd; border-radius: 6px; }
+.nav-logo {
+  font-size: 1.8rem; /* Bigger font */
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  color: #2563eb; /* Professional blue color */
+}
 
-@media (max-width: 768px) {
-  .nav-links span { display: none; }
-  .student-table { font-size: 12px; }
+.nav-links {
+  display: flex;
+  gap: 30px; /* More space between links */
+  align-items: center;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Layout Spacing */
+.dashboard-container, .list-page, .form-container {
+  padding: 20px;
+  background: var(--card);
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+  margin-bottom: 40px; /* Space between sections */
+}
+
+/* Form Spacing */
+.student-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Space between form rows */
+}
+
+.form-row {
+  display: flex;
+  gap: 20px; /* Space between inputs in the same row */
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 8px;
+}
+
+.input-group label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #666;
+}
+
+/* Stats Cards Spacing */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 25px; /* More space between cards */
+  margin: 30px 0;
+}
+
+/* Table Spacing */
+.student-table th, .student-table td {
+  padding: 18px; /* Roomier table cells */
+}
+
+.controls {
+  margin-bottom: 25px; /* Space between search bar and table */
+}
+
+/* App.css */
+
+/* 1. Define LIGHT variables (Default) */
+:root {
+  --bg-color: #f4f7fe;
+  --card-bg: #ffffff;
+  --text-color: #1a1a1a;
+  --border-color: #e2e8f0;
+  --nav-bg: #ffffff;
+}
+
+/* 2. Define DARK variables (When .dark class is active) */
+html.dark {
+  --bg-color: #0f172a;
+  --card-bg: #1e293b;
+  --text-color: #f8fafc;
+  --border-color: #334155;
+  --nav-bg: #1e293b;
+}
+
+/* 3. Use the variables everywhere */
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.navbar, .dashboard-container, .list-page, .form-container, .stat-card {
+  background-color: var(--card-bg);
+  color: var(--text-color);
+}
+
+/* Ensure headings in dark mode aren't forced to black */
+html.dark h1, html.dark h2, html.dark h3, html.dark h4, html.dark label {
+  color: var(--text-color) !important;
+}
+
+.grade-badge {
+  background: #edf2f7;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-weight: bold;
+  color: #2d3748;
+}
+
+/* Ensure the drop-downs look good in the controls bar */
+.controls select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background-color: var(--card-bg);
+  color: var(--text-color);
+  cursor: pointer;
+}
+
+/* App.css */
+
+.pagination button {
+  padding: 10px 20px;
+  background-color: #ffffff; /* White background */
+  color: #000000 !important; /* Force Black Text */
+  border: 2px solid #2563eb; /* Blue border */
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.2s;
+}
+
+.pagination button:hover:not(:disabled) {
+  background-color: #2563eb;
+  color: #ffffff !important;
+}
+
+.pagination span {
+  color: var(--text-color);
+  font-weight: bold;
+}
+
+/* App.css */
+
+.loader-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px; /* Centers it in the page content */
+  width: 100%;
+}
+
+.spinner-icon {
+  color: #2563eb; /* Professional Blue */
+  animation: rotate 1s linear infinite;
+  margin-bottom: 15px;
+}
+
+/* The Spinning Animation */
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.loader-container p {
+  font-weight: 600;
+  color: var(--text-color);
+  letter-spacing: 0.5px;
 }

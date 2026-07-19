@@ -1,7 +1,12 @@
 import { useStudents } from '../context/StudentContext';
+import Loader from '../components/Loader';
 
 const Dashboard = () => {
-  const { stats, students } = useStudents();
+  const { stats, students, loading } = useStudents();
+
+  if (loading) {
+    return <Loader />;
+  }
 
   return (
     <div className="dashboard-container">
@@ -13,7 +18,7 @@ const Dashboard = () => {
         <div className="stat-card"><h3>Highest Marks</h3><p>{stats.topPerformer}</p></div> {/* Renamed */}
       </div>
       <div className="recent-list">
-        <h2 style={{ color: 'black' }}>Students</h2> {/* Renamed and colored */}
+        <h2 style={{ color: 'black' }}>Recently Added</h2> {/* Renamed and colored */}
         {students.length === 0 ? <p>No students added yet.</p> : 
           students.slice(-3).reverse().map(s => (
             <div key={s.id} className="recent-item">
