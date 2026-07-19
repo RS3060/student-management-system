@@ -1,47 +1,74 @@
-# Run Locally
+# Student Management System (React)
 
-step 1: clone the project locally.
+A comprehensive React application built as part of my internship project. This system allows administrators to manage student records, track academic performance across multiple subjects, and manage daily attendance.
 
+## 🚀 Features
+
+- **Dashboard:** Real-time statistics (Total Students, Attendance, Avg Marks, Top Performer).
+- **Full CRUD:** Add, Read, Update, and Delete student profiles.
+- **Academic Tracking:** Automatic calculation of average marks and grades (A+, A, B, etc.).
+- **Attendance System:** Cycle through Present, Absent, and Late statuses.
+- **Search & Filter:** Search by name/email and filter by specific classes.
+- **Advanced Sorting:** Sort students by Name, Age, Marks, or recently added.
+- **Dark Mode:** Full theme support with persistent preferences.
+- **API Simulation:** Simulated asynchronous data fetching with loading states and error handling.
+- **Responsive Design:** Optimized for Mobile, Tablet, and Desktop views.
+
+## 🛠️ Tech Stack
+
+- **Frontend:** React.js (Vite)
+- **Icons:** Lucide-React
+- **Notifications:** React Hot Toast
+- **Routing:** React Router DOM v6
+- **State Management:** React Context API
+- **Persistence:** Local Storage with Simulated API delays
+
+---
+
+## 💻 Getting Started
+
+Follow these steps to run the project locally on your machine.
+
+### Prerequisites
+- [Node.js](https://nodejs.org/) (v14 or higher recommended)
+- npm (comes with Node.js)
+
+### Step 1: Clone the project
 ```bash
 git clone https://github.com/RS3060/student-management-system.git
 ```
 
-step 2: cd into the project's directory.
-
+### Step 2: Navigate to the directory
 ```bash
 cd student-management-system
 ```
 
-step 3: Run npm install when inside the specified directory to download the dependencies.
-
+### Step 3: Install dependencies
 ```bash
 npm install
 ```
 
-step 4: Run the project.
-
+### Step 4: Run the development server
 ```bash
 npm run dev
 ```
 
-step 5: Finally, copy and open the server link generated in your preferred browser of choice.
+### Step 5: Open in Browser
+Copy the local link (usually `http://localhost:5173`) generated in your terminal and paste it into your browser.
 
-step 6: To terminate the local server press ``ctrl+c`` in your terminal.
+---
 
+## 📖 Key Concepts Implemented
 
-# React + Vite
+While building this, I practiced and implemented:
+- **Hooks:** `useState`, `useEffect`, `useContext`, `useMemo`, `useParams`.
+- **JS Logic:** Array methods (`.map()`, `.filter()`, `.reduce()`, `.sort()`).
+- **Async JS:** `async/await` and Promises for API simulation.
+- **CSS:** Flexbox, Grid, CSS Variables, and `@keyframes` for animations.
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+---
 
-Currently, two official plugins are available:
+## 🛑 Termination
+To stop the local server, press `Ctrl + C` in your terminal.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the Oxlint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+---
